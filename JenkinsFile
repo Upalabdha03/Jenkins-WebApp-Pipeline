@@ -4,7 +4,7 @@ pipeline {
 
     tools {
         maven 'Maven'
-        jdk 'JDK21'
+        jdk 'JDK@21'
     }
 
     stages {
@@ -12,7 +12,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 
-                git branch: 'master', url: 'https://github.com/ankithtrainer/jenkins-my-webapp'
+                git branch: 'master', url: 'https://github.com/Upalabdha03/Jenkins-WebApp-Pipeline'
             }
         }
 
