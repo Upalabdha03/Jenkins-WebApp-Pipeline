@@ -1,47 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>DevOps Demo App</title>
+<title>Word Guessing Game</title>
 
 <style>
 body{
-    margin:0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg,#667eea,#764ba2);
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+font-family: Arial;
+text-align:center;
+background:#f4f4f4;
 }
 
 .container{
-    background:white;
-    padding:40px;
-    border-radius:10px;
-    text-align:center;
-    box-shadow:0px 5px 15px rgba(0,0,0,0.2);
+margin-top:100px;
+background:white;
+padding:30px;
+width:400px;
+margin-left:auto;
+margin-right:auto;
+border-radius:10px;
+box-shadow:0 0 10px gray;
 }
 
-h1{
-    color:#333;
-}
-
-p{
-    color:#555;
+input{
+padding:10px;
+font-size:16px;
 }
 
 button{
-    padding:10px 20px;
-    border:none;
-    background:#667eea;
-    color:white;
-    font-size:16px;
-    border-radius:5px;
-    cursor:pointer;
+padding:10px 20px;
+font-size:16px;
+background:#28a745;
+color:white;
+border:none;
+cursor:pointer;
 }
 
 button:hover{
-    background:#5a67d8;
+background:#218838;
 }
 </style>
 
@@ -50,16 +45,44 @@ button:hover{
 <body>
 
 <div class="container">
-    <h1>Welcome to My DevOps Pipeline </h1>
-    <p>This page is deployed using Jenkins CI/CD Pipeline.</p>
 
-    <button onclick="showMessage()">Click Me</button>
+<h2>Word Guessing Game</h2>
+
+<p id="hint">Hint: Programming Language</p>
+
+<input type="text" id="guess" placeholder="Enter your guess">
+
+<br><br>
+
+<button onclick="checkGuess()">Submit</button>
+
+<p id="result"></p>
+
+<p>Attempts: <span id="attempts">0</span></p>
+
 </div>
 
 <script>
-function showMessage(){
-    alert("Deployment Successful! Jenkins Pipeline Working.");
+
+let word="java";
+let attempts=0;
+
+function checkGuess(){
+
+let guess=document.getElementById("guess").value.toLowerCase();
+attempts++;
+
+document.getElementById("attempts").innerText=attempts;
+
+if(guess===word){
+document.getElementById("result").innerHTML=" Correct! You guessed the word.";
 }
+else{
+document.getElementById("result").innerHTML=" Wrong guess! Try again.";
+}
+
+}
+
 </script>
 
 </body>
